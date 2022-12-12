@@ -1,0 +1,33 @@
+.progress-line {
+    display: flex;
+    position: relative;
+    width: 100%;
+    background-color: #b3d4fc;
+    overflow: hidden;
+
+    &::before {
+        height: 100%;
+        width: 100%;
+        background-color: #004D6FFF;
+        content: '';
+        animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        z-index: 2;
+    }
+
+    &.progress-line-small {
+        height: 6px;
+    }
+    &.progress-line-default {
+        height: 12px;
+    }
+    &.progress-line-large {
+        height: 24px;
+    }
+}
+
+
+@keyframes running-progress {
+    0% { margin-left: 0; margin-right: 100%; }
+    50% { margin-left: 25%; margin-right: 0; }
+    100% { margin-left: 100%; margin-right: 0; }
+}
