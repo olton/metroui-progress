@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import classNames from "classnames";
 import "./Bar.less"
-import {PROGRESS_BAR_VARIANT} from "../Helpers/variants";
+import {PROGRESS_BAR_VALUE_POSITION, PROGRESS_BAR_VARIANT} from "../Helpers/variants";
 
 interface IProgressBarProps {
     val: number,
@@ -11,7 +11,8 @@ interface IProgressBarProps {
     className?: string,
     loading?: boolean,
     value?: boolean,
-    variant: PROGRESS_BAR_VARIANT
+    variant: PROGRESS_BAR_VARIANT,
+    valuePosition: PROGRESS_BAR_VALUE_POSITION.CENTER
 }
 
 const ProgressBar: FC<IProgressBarProps> = ({
@@ -23,6 +24,7 @@ const ProgressBar: FC<IProgressBarProps> = ({
     variant = PROGRESS_BAR_VARIANT.DEFAULT,
     loading = false,
     value = false,
+    valuePosition = PROGRESS_BAR_VALUE_POSITION.CENTER,
     ...props
 }) => {
     const classes = classNames(
@@ -40,11 +42,14 @@ const ProgressBar: FC<IProgressBarProps> = ({
             {loading && (
                 <div className="progress-bar-loading"></div>
             )}
-            {buffer && (
+            {bufferValue > 0 && (
                 <div className="progress-bar-buffer" style={{width: `${bufferValue}%`}}></div>
             )}
-            {val && (
+            {barValue && (
                 <div className="progress-bar-value" style={{width: `${barValue}%`}}></div>
+            )}
+            {value && (
+                <span className={`progress-value ${valuePosition}`}>{barValue}%</span>
             )}
         </div>
     )

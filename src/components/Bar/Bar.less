@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     background-color: #eeeeee;
-    overflow: hidden;
+    //overflow: hidden;
 
     .progress-bar-value,
     .progress-bar-buffer,
@@ -60,14 +60,38 @@
         float: left;
         position: absolute;
         z-index: 5;
-        font-size: 11px;
+        //font-size: 11px;
         top: 50%;
         transform: translateY(-50%);
         margin-left: 4px;
+        margin-top: -1px;
+        //color: #eeeeee;
 
-        &.centered {
+        &.value-center {
             left: 50%;
             transform: translate3d(-50%,-50%,0);
+        }
+        &.value-left {
+            left: 2px;
+        }
+        &.value-right {
+            right: 2px;
+        }
+    }
+
+    &.progress-bar-small {
+        .progress-value {
+            font-size: 8px;
+        }
+    }
+    &.progress-bar-default {
+        .progress-value {
+            font-size: 11px;
+        }
+    }
+    &.progress-bar-large {
+        .progress-value {
+            font-size: 18px;
         }
     }
 }

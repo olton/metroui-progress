@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 
 import "./index.less"
-import {PROGRESS_BAR_VARIANT, ProgressLine, ProgressBar} from "../src/index.ts";
+import {PROGRESS_BAR_VARIANT, ProgressLine, ProgressBar, PROGRESS_BAR_VALUE_POSITION} from "../src/index.ts";
 
 const App = () => {
     return (
@@ -38,6 +38,13 @@ const App = () => {
                 <ProgressBar val={50}/>
                 <ProgressBar buffer={75} val={50}/>
                 <ProgressBar buffer={75} val={50} loading/>
+            </div>
+            <br/>
+            <br/>
+            <div className="button-container">
+                <ProgressBar val={50} valuePosition={PROGRESS_BAR_VALUE_POSITION.LEFT} value/>
+                <ProgressBar val={50} valuePosition={PROGRESS_BAR_VALUE_POSITION.CENTER} value/>
+                <ProgressBar val={50} valuePosition={PROGRESS_BAR_VALUE_POSITION.RIGHT} value/>
             </div>
         </>
     )
