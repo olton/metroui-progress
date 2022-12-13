@@ -34,8 +34,8 @@ const ProgressBar: FC<IProgressBarProps> = ({
     )
 
     const total = max - min
-    const bufferValue = buffer * 100 / total
-    const barValue = val * 100 / total
+    const bufferValue = Math.round(buffer * 100 / total)
+    const barValue = Math.round(val * 100 / total)
 
     return (
         <div className={classes} {...props}>
@@ -45,7 +45,7 @@ const ProgressBar: FC<IProgressBarProps> = ({
             {bufferValue > 0 && (
                 <div className="progress-bar-buffer" style={{width: `${bufferValue}%`}}></div>
             )}
-            {barValue && (
+            {barValue > 0 && (
                 <div className="progress-bar-value" style={{width: `${barValue}%`}}></div>
             )}
             {value && (
