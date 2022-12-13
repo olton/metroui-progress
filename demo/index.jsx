@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 
 import "./index.less"
-import {PROGRESS_LINE_VARIANT, ProgressLine} from "../src/index.ts";
+import {PROGRESS_BAR_VARIANT, ProgressLine, ProgressBar} from "../src/index.ts";
 
 const App = () => {
     return (
@@ -18,14 +18,26 @@ const App = () => {
                 <h2>Progress Line</h2>
             </div>
             <div className="button-container">
-                <ProgressLine variant={PROGRESS_LINE_VARIANT.SMALL}/>
-                <ProgressLine variant={PROGRESS_LINE_VARIANT.DEFAULT}/>
-                <ProgressLine variant={PROGRESS_LINE_VARIANT.LARGE}/>
+                <ProgressLine variant={PROGRESS_BAR_VARIANT.SMALL}/>
+                <ProgressLine variant={PROGRESS_BAR_VARIANT.DEFAULT}/>
+                <ProgressLine variant={PROGRESS_BAR_VARIANT.LARGE}/>
             </div>
             <br/>
             <br/>
             <div className="button-container">
                 <h2>Progress Bar</h2>
+            </div>
+            <div className="button-container">
+                <ProgressBar val={50} variant={PROGRESS_BAR_VARIANT.SMALL}/>
+                <ProgressBar val={50} variant={PROGRESS_BAR_VARIANT.DEFAULT}/>
+                <ProgressBar val={50} variant={PROGRESS_BAR_VARIANT.LARGE}/>
+            </div>
+            <br />
+            <br />
+            <div className="button-container">
+                <ProgressBar val={50}/>
+                <ProgressBar buffer={75} val={50}/>
+                <ProgressBar buffer={75} val={50} loading/>
             </div>
         </>
     )

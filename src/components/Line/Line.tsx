@@ -1,19 +1,15 @@
 import React, {FC} from "react";
 import classNames from "classnames";
 import "./Line.less"
-export enum PROGRESS_LINE_VARIANT {
-    SMALL = "progress-line-small",
-    DEFAULT = "progress-line-default",
-    LARGE = "progress-line-large",
-}
+import {PROGRESS_BAR_VARIANT} from "../Helpers/variants";
 
 interface IProgressLineProps {
-    variant: PROGRESS_LINE_VARIANT,
+    variant: PROGRESS_BAR_VARIANT,
     className?: string
 }
 
 const ProgressLine: FC<IProgressLineProps> = ({
-    variant = PROGRESS_LINE_VARIANT.DEFAULT,
+    variant = PROGRESS_BAR_VARIANT.DEFAULT,
     className,
 }) => {
     const classes = classNames(

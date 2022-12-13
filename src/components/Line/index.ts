@@ -1,1 +1,1 @@
-export {default as ProgressLine, PROGRESS_LINE_VARIANT} from "./Line"
+export {default as ProgressLine} from "./Line"
